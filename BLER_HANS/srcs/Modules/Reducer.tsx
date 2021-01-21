@@ -1,7 +1,9 @@
 import { tAction } from '../Types'
 export const ACTION = 'ACTION' as const;
 
-const initState : tAction.tAction = {}
+const initState : tAction.tAction = {
+	title : "Reducer"
+}
 
 export const actionFunc = () => ({
 	type : ACTION,
@@ -9,8 +11,9 @@ export const actionFunc = () => ({
 });
 
 type Action = 
-	| ReturnType<typeof actionFunc>
-const Reducer = (state : tAction.tAction, action : Action) => {
+	| ReturnType<typeof actionFunc>;
+
+const Reducer = (state : tAction.tAction = initState, action : Action) => {
 	switch (action.type) {
 		case ACTION :
 			return state;

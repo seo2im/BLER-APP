@@ -1,4 +1,9 @@
 import React from 'react';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import Reducer from './Modules'
+const store = createStore(Reducer);
+
 import {
   View,
   Text,
@@ -6,9 +11,11 @@ import {
 
 const App = () => {
   return (
-    <View>
-      <Text>BL:ER HANS</Text>
-    </View>
+    <Provider store={store}>
+      <View>
+        <Text>BL:ER HANS</Text>
+      </View>
+    </Provider>
   )
 }
 

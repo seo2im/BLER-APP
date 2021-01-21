@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import _ from './Reducer'
+import Action from './Reducer'
 
 const Reducer = combineReducers({
-	_
+	Action
 })
 
 export default Reducer;
