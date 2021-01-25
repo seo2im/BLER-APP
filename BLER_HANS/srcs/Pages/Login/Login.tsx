@@ -1,15 +1,17 @@
 import React, { useEffect }  from 'react';
 import { Text, Button } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from './Test';
-import { getApiThunk } from './Test/thunks';
+import { tState } from '../../Modules';
+import { getUserNum } from '../../Modules/userNum/thunks';
 
-const Main = () => {
-	const { data, loading, error } = useSelector((state : RootState) => state.apiReducer.api)
+import Main from '../Main/Main';
+
+const Login = () => {
+	const { data, loading, error } = useSelector((state : tState) => state.userNum.data)
 	const dispatch = useDispatch();
 
 	const click = () => {
-		dispatch(getApiThunk());
+		dispatch(getUserNum('seolim'));
 	}
 
 	return (
@@ -18,9 +20,9 @@ const Main = () => {
 			<Button title="click" onPress={() => click()}/>
 			{loading && <Text>Loading</Text>}
 			{error && <Text>Error</Text>}
-			{data && <Text>{data.}</Text>}
+			{data && <Main userNum={data.user.userNum} />}
 		</>	
 	)
 }
 
-export default Main
+export default Login;

@@ -1,3 +1,5 @@
+/* https://react.vlpt.us/using-typescript/06-ts-redux-middleware.html */
+
 import { Dispatch } from 'redux'
 import { AsyncActionCreatorBuilder } from 'typesafe-actions';
 

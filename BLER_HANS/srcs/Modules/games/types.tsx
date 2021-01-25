@@ -1,9 +1,9 @@
 import { ActionType } from 'typesafe-actions';
-import { AsyncState } from './reducerUtils';
+import { AsyncState } from '../Public/reducerUtils';
 import * as actions from './actions'
-import { tApi } from './api'
+import { tGames } from './api'
 
 export type tApiAction = ActionType<typeof actions>;
 export type tApiState = {
-	api : AsyncState<tApi, Error>
+	data : AsyncState<tGames, Error>
 }
