@@ -1,15 +1,15 @@
 import React, { useEffect }  from 'react';
-import { Text, Button } from 'react-native';
+import { Text } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { tState } from '../../Modules';
 import { getUserRank } from '../../Modules/userRank/thunks';
 
 const Main = ({userNum}) => {
-	const { data, loading, error } = useSelector((state : tState) => state.userRank.data)
+	const { data, loading, error } = useSelector((state : tState) => state.userRank.data);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(getUserRank(userNum, 1, 1))
+		dispatch(getUserRank(userNum, 1, 1));
 	}, []);
 
 	return (
@@ -18,7 +18,7 @@ const Main = ({userNum}) => {
 			{loading && <Text>Loading</Text>}
 			{error && <Text>Error</Text>}
 			{data && <Text>rank : {data.userRank.rank}</Text>}
-		</>	
+		</>
 	)
 }
 

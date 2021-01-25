@@ -1,5 +1,5 @@
-import React, { useEffect }  from 'react';
-import { Text, Button } from 'react-native';
+import React from 'react';
+import { Text, Button, TextInput } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { tState } from '../../Modules';
 import { getUserNum } from '../../Modules/userNum/thunks';
@@ -26,3 +26,4 @@ const Login = () => {
 }
 
 export default Login;
+
