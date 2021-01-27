@@ -1,5 +1,5 @@
 import { createAsyncAction } from 'typesafe-actions'
-import { tUserNum } from './api'
+import { tUserNumAPI } from './api'
 import { AxiosError } from "axios"
 
 export const USERNUM_GET = 'USERNUM/GET';
@@ -10,4 +10,4 @@ export const getApiAsync = createAsyncAction(
 	USERNUM_GET,
 	USERNUM_GET_SUCCESS,
 	USERNUM_GET_ERROR
-)<undefined, tUserNum, AxiosError>();
+)<undefined, tUserNumAPI, AxiosError>();

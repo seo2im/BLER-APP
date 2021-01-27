@@ -13,13 +13,13 @@ export const getAPI = async (userNum : number, seasonId : number) => {
 	return response.data;
 }
 
-export type tUserStat = {
+export type tUserStatsAPI = {
     code:      number;
     message:   string;
-    userStats: UserStat[];
+    userStats: tUserStat[];
 }
 
-type UserStat = {
+export type tUserStat = {
     seasonId:          number;
     userNum:           number;
     matchingMode:      number;

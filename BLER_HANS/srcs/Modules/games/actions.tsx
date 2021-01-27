@@ -1,5 +1,5 @@
 import { createAsyncAction } from 'typesafe-actions'
-import { tGames } from './api'
+import { tGamesAPI } from './api'
 import { AxiosError } from "axios"
 
 export const GAMES_GET = 'GAMES/GET';
@@ -10,4 +10,4 @@ export const getApiAsync = createAsyncAction(
 	GAMES_GET,
 	GAMES_GET_SUCCESS,
 	GAMES_GET_ERROR
-)<undefined, tGames, AxiosError>();
+)<undefined, tGamesAPI, AxiosError>();

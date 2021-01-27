@@ -1,16 +1,16 @@
 import axios from 'axios'
 import key from '../../../secret'
 
-export type UserRank = {
+export type tUserRank = {
     userNum:  number;
     mmr:      number;
     nickname: string;
     rank:     number;
 }
-export type tUserRank = {
+export type tUserRankAPI = {
     code:     number;
     message:  string;
-    userRank: UserRank;
+    userRank: tUserRank;
 }
 
 export const getAPI = async (userNum : number, seasonId : number, matchingTeamMode: number) => {

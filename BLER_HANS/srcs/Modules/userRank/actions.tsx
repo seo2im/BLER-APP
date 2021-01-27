@@ -1,5 +1,5 @@
 import { createAsyncAction } from 'typesafe-actions'
-import { tUserRank } from './api'
+import { tUserRankAPI } from './api'
 import { AxiosError } from "axios"
 
 export const USERRANK_GET = 'USERRANK/GET';
@@ -10,4 +10,4 @@ export const getApiAsync = createAsyncAction(
 	USERRANK_GET,
 	USERRANK_GET_SUCCESS,
 	USERRANK_GET_ERROR
-)<undefined, tUserRank, AxiosError>();
+)<undefined, tUserRankAPI, AxiosError>();

@@ -9,12 +9,12 @@ import Reducer from './Modules'
 const store = createStore(Reducer,
 	composeWithDevTools(applyMiddleware(ReduxThunk))
 );
-import Login from './Pages/Login/Login'
+import Navigator from './Navigator/Navigator'
 
 const App = () => {
 	return (
     	<Provider store={store}>
-			<Login />
+			<Navigator />
     	</Provider>
   	)
 }

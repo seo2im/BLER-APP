@@ -1,14 +1,14 @@
 import axios from 'axios'
 import key from '../../../secret'
 
-export type User = {
+export type tUser = {
     userNum:  number;
     nickname: string;
 }
-export type tUserNum  = {
+export type tUserNumAPI  = {
     code:    number;
     message: string;
-    user:    User;
+    user:    tUser;
 }
 
 export const getAPI = async (nickname : string) => {

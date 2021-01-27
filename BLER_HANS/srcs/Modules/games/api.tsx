@@ -1,14 +1,14 @@
 import axios from 'axios'
 import key from '../../../secret'
 
-export type tGames = {
+export type tGamesAPI = {
     code:      number;
     message:   string;
-    userGames: UserGame[];
+    userGames: tUserGame[];
     next:      number;
 }
 
-export type UserGame = {
+export type tUserGame = {
     userNum:                   number;
     nickname:                  string;
     gameId:                    number;

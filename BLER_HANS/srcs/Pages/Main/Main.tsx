@@ -1,23 +1,13 @@
-import React, { useEffect }  from 'react';
-import { Text } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { tState } from '../../Modules';
-import { getUserRank } from '../../Modules/userRank/thunks';
+import React from 'react'
+import { Text } from 'react-native'
 
-const Main = ({userNum}) => {
-	const { data, loading, error } = useSelector((state : tState) => state.userRank.data);
-	const dispatch = useDispatch();
+import { tUserRank } from '../../Modules/userRank/api'
+import { tUserStat } from '../../Modules/userStats/api'
 
-	useEffect(() => {
-		dispatch(getUserRank(userNum, 1, 1));
-	}, []);
-
+const Main = ({ userRank , userStats} : { userRank : tUserRank, userStats : tUserStat[]}) => {
 	return (
 		<>
-			<Text>BL:ER</Text>
-			{loading && <Text>Loading</Text>}
-			{error && <Text>Error</Text>}
-			{data && <Text>rank : {data.userRank.rank}</Text>}
+				
 		</>
 	)
 }
