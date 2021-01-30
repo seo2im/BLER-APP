@@ -6,10 +6,8 @@ import Component from './Component';
 
 
 const Container = ({ navigation }) => {
-	
-	const dispatch = useDispatch();
-	const link = () => {
-		navigation.navigate("Main", { nickname : "seolim" })
+	const link = (nickname) => {
+		navigation.navigate("Main", { nickname });
 	}
 
 	return (

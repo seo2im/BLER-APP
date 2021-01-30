@@ -11,7 +11,8 @@ const Container = ({userNum, mode} : { userNum : number, mode : number }) => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(getUserStats(userNum, mode));
+		if (!data)
+			dispatch(getUserStats(userNum, mode));
 	}, []);
 
 	return (

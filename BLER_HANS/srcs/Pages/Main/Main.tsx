@@ -1,13 +1,25 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { View, Text } from 'react-native'
+import { charactorCode } from '../../information'
 
-import { tUserRank } from '../../Modules/userRank/api'
 import { tUserStat } from '../../Modules/userStats/api'
 
-const Main = ({ userRank , userStats} : { userRank : tUserRank, userStats : tUserStat[]}) => {
+const Main = ({ userStats } : { userStats : tUserStat[]}) => {
+	const { rank, mmr, nickname, characterStats } = userStats[0];
+	
 	return (
 		<>
-				
+			<Text>nickname : {nickname}</Text>
+			<Text>Rank : {rank} ({mmr})</Text>
+			<Text>Most</Text>
+			{characterStats.map((ch, i) => (
+				<View key={i}>
+					<Text>{charactorCode[ch.characterCode]}</Text>
+					<Text>total : {ch.totalGames}</Text>
+					<Text>wins : {ch.wins}</Text>
+					<Text>average Rank : {ch.averageRank}</Text>
+				</View>
+			))}
 		</>
 	)
 }

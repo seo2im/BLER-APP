@@ -4,14 +4,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { tState } from '../../Modules'
 import { getGames } from '../../Modules/games/thunks'
 
-import Component from './Component'
+import Component from './MatchHistory'
 
-const Container = ({userNum, mode} : { userNum : number, mode : number }) => {
+const Container = ({ route, navigation }) => {
+	const { userNum } = route.params;
 	const { data, loading, error } = useSelector((state : tState) => state.games.data);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(getGames(userNum));
+		if (!data)
+			dispatch(getGames(userNum));
 	}, []);
 
 	return (

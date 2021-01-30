@@ -1,12 +1,16 @@
-import React from 'react'
-import { Text, Button } from 'react-native'
+import React, { useState } from 'react'
+import { Text, Button, TextInput } from 'react-native'
 
 const Component = ({ link }) => {
-	
+	const [nickname, setNickname] = useState<string>("");
+
 	return (
 		<>
 			<Text>BL:ER</Text>
-			<Button title="click" onPress={() => link()} />
+			<TextInput
+				onChangeText={text => setNickname(text)}
+				value={nickname} />
+			<Button title="click" onPress={() => link(nickname)} />
 		</>
 	)
 }
