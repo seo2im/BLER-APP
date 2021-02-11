@@ -5,11 +5,13 @@ import { tState } from '../../Modules'
 
 import { getUserNum } from '../../Modules/userNum/thunks'
 import { getUserStats } from '../../Modules/userStats/thunks'
+import * as storage from '../../Storage/storage'
 
 import Main from './Main'
 
 const Container = ({ route, navigation }) => {
 	const { nickname } = route.params;
+	console.log(nickname);
 	const { data, loading, error } = useSelector((state : tState) => state.userNum.data);
 	const dispatch = useDispatch();
 
