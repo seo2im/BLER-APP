@@ -4,7 +4,7 @@ import { charactorCode } from '../../information'
 
 import { tUserStat } from '../../Modules/userStats/api'
 
-const Main = ({ userStats } : { userStats : tUserStat[]}) => {
+const Main = ({ userStats, linkMatchHistory, linkStats }) => {
 	const { rank, mmr, nickname, characterStats } = userStats[0];
 	
 	return (

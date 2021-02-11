@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Text, Button, TextInput } from 'react-native'
 
-const Component = ({ link }) => {
+const Login = ({ link }) => {
 	const [nickname, setNickname] = useState<string>("");
 
 	return (
@@ -15,4 +15,4 @@ const Component = ({ link }) => {
 	)
 }
 
-export default Component;
+export default Login;

@@ -46,7 +46,9 @@ const Connector = ({ userNum, navigation }) => {
 		<>
 			{loading &&  <Text>Loading</Text>}
 			{error &&  <Text>Error</Text>}
-			{data &&  <Main userStats={data.userStats}/>}
+			{data &&  <Main userStats={data.userStats}
+							linkMatchHistory={linkMatchHistory}
+							linkStats={linkStats}/>}
 		</>
 	)
 }

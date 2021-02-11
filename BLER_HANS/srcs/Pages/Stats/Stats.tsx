@@ -3,7 +3,7 @@ import { Text } from 'react-native'
 
 import { tUserStat } from '../../Modules/userStats/api'
 
-const Component = ({ userStats } : { userStats : tUserStat[] }) => {
+const Stats = ({ userStats } : { userStats : tUserStat[] }) => {
 	const { 
 		seasonId,
 		mmr,
@@ -24,4 +24,4 @@ const Component = ({ userStats } : { userStats : tUserStat[] }) => {
 	)
 }
 
-export default Component;
+export default Stats;

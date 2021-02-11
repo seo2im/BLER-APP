@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { tState } from '../../Modules';
-import { getUserNum } from '../../Modules/userNum/thunks';
-import Component from './Component';
+import React from 'react';
+import Login from './Login';
 
 
 const Container = ({ navigation }) => {
@@ -12,7 +9,7 @@ const Container = ({ navigation }) => {
 
 	return (
 		<>
-			<Component link={link}/>
+			<Login link={link}/>
 		</>	
 	)
 }

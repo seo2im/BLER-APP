@@ -4,22 +4,23 @@ import { useSelector, useDispatch } from 'react-redux';
 import { tState } from '../../Modules'
 import { getUserStats } from '../../Modules/userStats/thunks'
 
-import Component from './Component'
+import Stats from './Stats'
 
-const Container = ({userNum, mode} : { userNum : number, mode : number }) => {
+const Container = ({ route, navigation }) => {
+	const { userNum } = route.params;
 	const { data, loading, error } = useSelector((state : tState) => state.userStats.data);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		if (!data)
-			dispatch(getUserStats(userNum, mode));
+			dispatch(getUserStats(userNum, 1));
 	}, []);
 
 	return (
 		<>
 			{loading && <Text>Loading</Text>}
 			{error && <Text>Error</Text>}
-			{data && <Component userStats={data.userStats}/>}
+			{data && <Stats userStats={data.userStats}/>}
 		</>
 	)
 }

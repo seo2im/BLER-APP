@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { tState } from '../../Modules'
 import { getGames } from '../../Modules/games/thunks'
 
-import Component from './MatchHistory'
+import MatchHistory from './MatchHistory'
 
 const Container = ({ route, navigation }) => {
 	const { userNum } = route.params;
@@ -20,7 +20,7 @@ const Container = ({ route, navigation }) => {
 		<>
 			{loading && <Text>Loading</Text>}
 			{error && <Text>Error</Text>}
-			{data && <Component userGames={data.userGames}/>}
+			{data && <MatchHistory userGames={data.userGames}/>}
 		</>
 	)
 }
