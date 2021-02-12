@@ -1,14 +1,18 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Background, Tier } from './Style'
 import { charactorCode } from '../../information'
 
 import { tUserStat } from '../../Modules/userStats/api'
+
 
 const Main = ({ userStats, linkMatchHistory, linkStats }) => {
 	const { rank, mmr, nickname, characterStats } = userStats[0];
 	
 	return (
 		<>
+		<Background source={require("../../Public/background.jpg")}>
+		<View>
+			<Tier source={require("../../Public/tier/bronze.png")}/>
 			<Text>nickname : {nickname}</Text>
 			<Text>Rank : {rank} ({mmr})</Text>
 			<Text>Most</Text>
@@ -20,6 +24,8 @@ const Main = ({ userStats, linkMatchHistory, linkStats }) => {
 					<Text>average Rank : {ch.averageRank}</Text>
 				</View>
 			))}
+		</View>
+		</Background>
 		</>
 	)
 }

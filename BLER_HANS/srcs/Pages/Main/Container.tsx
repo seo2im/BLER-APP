@@ -11,7 +11,6 @@ import Main from './Main'
 
 const Container = ({ route, navigation }) => {
 	const { nickname } = route.params;
-	console.log(nickname);
 	const { data, loading, error } = useSelector((state : tState) => state.userNum.data);
 	const dispatch = useDispatch();
 
