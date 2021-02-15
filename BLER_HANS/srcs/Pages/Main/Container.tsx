@@ -8,6 +8,8 @@ import { getUserStats } from '../../Modules/userStats/thunks'
 import * as storage from '../../Storage/storage'
 
 import Main from './Main'
+import { Loading } from '../Pulbic'
+import { Background } from './Style';
 
 const Container = ({ route, navigation }) => {
 	const { nickname } = route.params;
@@ -23,12 +25,12 @@ const Container = ({ route, navigation }) => {
 		<>
 			{loading && <Text>Loading</Text>}
 			{error && <Text>Error</Text>}
-			{data && <Connector userNum={data.user.userNum} navigation={navigation}/>}
+			{data && <Connector nickname={nickname} userNum={data.user.userNum} navigation={navigation}/>}
 		</>
 	)
 }
 
-const Connector = ({ userNum, navigation }) => {
+const Connector = ({ nickname, userNum, navigation }) => {
 	const { data, loading, error } = useSelector((state : tState) => state.userStats.data);
 	const dispatch = useDispatch();
 
@@ -36,7 +38,7 @@ const Connector = ({ userNum, navigation }) => {
 		navigation.navigate("MatchHistory", { userNum });
 	}
 	const linkStats = (matchMode) => {
-		navigation.naviagte("Stats", { userNum, matchMode });
+		navigation.navigate("Stats", { userNum, matchMode });
 	}
 
 	useEffect(() => {
@@ -44,13 +46,16 @@ const Connector = ({ userNum, navigation }) => {
 	}, []);
 
 	return (
-		<>
-			{loading &&  <Text>Loading</Text>}
+	<>
+		<Background source={require("../../Public/background.jpg")}>
+			{loading &&  <Loading />}
 			{error &&  <Text>Error</Text>}
-			{data &&  <Main userStats={data.userStats}
+			{data &&  <Main nickname={nickname}
+							userStats={data.userStats}
 							linkMatchHistory={linkMatchHistory}
 							linkStats={linkStats}/>}
-		</>
+		</Background>
+	</>
 	)
 }
 

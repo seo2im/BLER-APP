@@ -40,10 +40,10 @@ export type tUserStat = {
     top3:              number;
     top5:              number;
     top7:              number;
-    characterStats:    CharacterStat[];
+    characterStats:    tCharacterStat[];
 }
 
-type CharacterStat = {
+export type tCharacterStat = {
     characterCode: number;
     totalGames:    number;
     usages:        number;

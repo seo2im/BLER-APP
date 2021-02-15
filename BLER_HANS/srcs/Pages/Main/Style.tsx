@@ -8,7 +8,8 @@ const Background = styled.ImageBackground`
 
 const View = styled.View`
 	flex : 1;
-	background-color : rgba(0, 0, 0, 0.6);
+	background-color : rgba(0, 0, 0, 0.7);
+	padding : 2.5%;
 `
 
 const HView = styled(Basic.HView)`
@@ -19,8 +20,10 @@ const List = styled.View`
 
 `
 
-const Text = styled.Text`
+const Title = styled.Text`
+	margin : 10px 10px 10px 10px;
 	color : white;
+	font-size : 20px;
 `
 
-export { Background, View, Text, List, HView };
+export { Background, View, Title, List, HView };

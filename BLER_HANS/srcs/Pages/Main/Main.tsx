@@ -1,40 +1,40 @@
 import React from 'react'
-import { View, Text, Background, List, HView } from './Style'
-import { charactorCode } from '../../information'
+import { View, Title, HView } from './Style'
 
 import { tUserStat } from '../../Modules/userStats/api'
-import Tier from '../Pulbic/Tier'
-import Charactor from '../Pulbic/Character'
-
+import TierBox from './Srcs/TierBox'
+import CharacterBox from './Srcs/CharactorBox'
+import Linker from './Srcs/Linker'
 
 const Main
-= ({ userStats, linkMatchHistory, linkStats }
-	:{ userStats : tUserStat[], linkMatchHistory : any, linkStats : any}) => {
+= ({ nickname, userStats, linkMatchHistory, linkStats }
+	:{ nickname : string, userStats : tUserStat[], linkMatchHistory : any, linkStats : any}) => {
 	const [ solo, duo, squard ] = userStats;
 
 	return (
-		<>
-		<Background source={require("../../Public/background.jpg")}>
+	<>
 		<View>
-			<Text>nickname : {solo.nickname}</Text>
+			<Title>{nickname}</Title>
 			<HView>
-				{solo ? <Tier mmr={solo.mmr} /> : <Tier mmr={-1} />}
-				{duo ? <Tier mmr={duo.mmr} /> : <Tier mmr={-1} />}
-				{squard ? <Tier mmr={squard.mmr} /> : <Tier mmr={-1} />}
+				<TierBox stat={solo} />
+				<TierBox stat={duo} />
+				<TierBox stat={squard} />
 			</HView>
 			
-			<Text>Most</Text>
+			<Title>Most</Title>
 			<HView>
-				{solo ? <Charactor code={solo.characterStats[0].characterCode}/>
-						: <Charactor code={-1} />}
-				{duo ? <Charactor code={duo.characterStats[0].characterCode}/>
-						: <Charactor code={-1} />}
-				{squard ? <Charactor code={squard.characterStats[0].characterCode}/>
-						: <Charactor code={-1} />}
+				<CharacterBox stat={solo}/>
+				<CharacterBox stat={duo}/>
+				<CharacterBox stat={squard}/>
+			</HView>
+			
+			<HView>
+				<Linker link={() => linkStats(1)} title={"통계"}/>
+				<Linker link={() => undefined} title={"루트"}/>
+				<Linker link={() => linkMatchHistory()} title={"히스토리"}/>
 			</HView>
 		</View>
-		</Background>
-		</>
+	</>
 	)
 }
 

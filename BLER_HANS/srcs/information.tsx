@@ -1,4 +1,4 @@
-export const charactorCode  = {
+export const chCodeList  = {
 	1 : "재키",
 	2 : "아야",
 	3 : "피오라",
