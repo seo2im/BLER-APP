@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import * as Basic from "../../../Styles/Basic"
+import LinearGradient from 'react-native-linear-gradient'
 /*
 	TierBox Style
 */
@@ -10,6 +10,15 @@ export const TierBoxView = styled.View`
 	background-color	: white;
 	border-radius		: 5px;
 `
+
+export const CharaterBoxView = styled(LinearGradient)`
+	width	: 25%;
+	margin	: 0 auto;
+
+	background-color	: white;
+	border-radius		: 5px;
+`
+
 export const Name = styled.Text`
 	color		: black;
 	font-size	: 20px;

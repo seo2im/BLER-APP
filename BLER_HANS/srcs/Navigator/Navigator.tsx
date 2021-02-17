@@ -1,14 +1,15 @@
-import { Main, Login, MatchHistory, Stats } from '../Pages'
+import { Main, Login, MatchHistory, Stats, Menu, Header } from '../Pages'
 
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 const Stack = createStackNavigator();
 
-const PageStack = () => {
+const PageStack = ({ setVisible }) => {
 	return (
-		<Stack.Navigator>
+		<Stack.Navigator screenOptions={{
+			header : ({}) => (<Header func={() => setVisible(true)}/>)}}>
 			<Stack.Screen name="Login" component={Login}/>
 			<Stack.Screen name="Main" component={Main}/>
 			<Stack.Screen name="Stats" component={Stats}/>
@@ -18,13 +19,14 @@ const PageStack = () => {
 }
 
 const Navigator = () => {
-	/* For Menu */
-	//const navRef = useRef(null);
+	const [ visible, setVisible ] = useState<boolean>(false);
+	const navRef = useRef(null);
 
 	return (
 		<>
+			<Menu visible={visible} setVisible={setVisible} navigation={navRef.current}/>
 			<NavigationContainer>
-				<PageStack />
+				<PageStack setVisible={setVisible}/>
 			</NavigationContainer>
 		</>
 	)

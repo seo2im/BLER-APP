@@ -1,5 +1,5 @@
 import React from 'react'
-import { TierBoxView, Name } from './Style'
+import { CharaterBoxView, Name } from './Style'
 import { Character } from '../../Pulbic'
 import { tUserStat, tCharacterStat } from '../../../Modules/userStats/api'
 import { chCodeList } from '../../../information'
@@ -15,10 +15,11 @@ const tierName = ["아이언 4", "아이언 3", "아이언 2", "아이언 1",
 
 const NoneBox = () => {
 	return (
-		<TierBoxView>
+		<CharaterBoxView
+			color={['#4c669f', '#3b5998', '#192f6a']}>
 			<Name>No Most</Name>
 			<Character code={-1} width={"70px"} height={"100px"}/>
-		</TierBoxView>
+		</CharaterBoxView>
 	)
 }
 
@@ -26,12 +27,13 @@ const Box = ({ chStat } : { chStat : tCharacterStat }) => {
 	const { characterCode, totalGames, wins } = chStat
 
 	return (
-		<TierBoxView>
+		<CharaterBoxView
+		color={['#4c669f', '#3b5998', '#192f6a']}>
 			<Name>{chCodeList[characterCode]}</Name>
 			<Character code={characterCode} width={"70px"} height={"100px"}/>
 			<Name>{totalGames}</Name>
 			<Name>{wins}</Name>
-		</TierBoxView>
+		</CharaterBoxView>
 	)
 }
 

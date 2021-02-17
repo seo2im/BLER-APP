@@ -18,7 +18,6 @@ export const setData = (name : string, data : any) => {
 	catch (e) {
 		console.log(name, "data cant setting in storage\n", e);
 	}
-	
 }
 
 export const initData = () => {

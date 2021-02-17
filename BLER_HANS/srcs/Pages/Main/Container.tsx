@@ -8,7 +8,7 @@ import { getUserStats } from '../../Modules/userStats/thunks'
 import * as storage from '../../Storage/storage'
 
 import Main from './Main'
-import { Loading } from '../Pulbic'
+import { Loading, Error } from '../Pulbic'
 import { Background } from './Style';
 
 const Container = ({ route, navigation }) => {
@@ -23,8 +23,8 @@ const Container = ({ route, navigation }) => {
 
 	return (
 		<>
-			{loading && <Text>Loading</Text>}
-			{error && <Text>Error</Text>}
+			{loading && <Loading />}
+			{error && <Error />}
 			{data && <Connector nickname={nickname} userNum={data.user.userNum} navigation={navigation}/>}
 		</>
 	)
@@ -49,7 +49,7 @@ const Connector = ({ nickname, userNum, navigation }) => {
 	<>
 		<Background source={require("../../Public/background.jpg")}>
 			{loading &&  <Loading />}
-			{error &&  <Text>Error</Text>}
+			{error &&  <Error />}
 			{data &&  <Main nickname={nickname}
 							userStats={data.userStats}
 							linkMatchHistory={linkMatchHistory}
