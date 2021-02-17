@@ -14,11 +14,11 @@ const Menu = ({ visible, setVisible }) => {
 
 	const slideOut = () => {
 		Animated.timing(slideAnim, {
-			toValue : -300,
+			toValue : 0,
 			duration : 500,
 			useNativeDriver : false,
 		}).start();
-		setTimeout(() => setVisible(false), 500);
+		setTimeout(() => setVisible(false));
 	}
 
 	useEffect(() => {
