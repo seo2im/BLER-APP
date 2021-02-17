@@ -8,16 +8,12 @@ const Image = styled.Image<{width : string, height : string}>`
 	resizeMode : stretch;
 	border-top-left-radius : 10px;
 	border-bottom-left-radius : 10px;
-
-	margin : 0 auto;
 `
 const NoneBox = styled.View<{width : string, height : string}>`
 	width : ${props => props.width};
 	height : ${props => props.height};
 	border-radius : 10px;
 	background-color: white;
-
-	margin : 0 auto;
 `
 export const None = (width : string, height : string) => 
 <NoneBox width={width} height={height}/>

@@ -2,9 +2,9 @@ import React from 'react'
 import { View, Title, HView } from './Style'
 
 import { tUserStat } from '../../Modules/userStats/api'
-import TierBox from './Srcs/TierBox'
-import CharacterBox from './Srcs/CharactorBox'
+import { DataBox } from './Srcs'
 import Linker from './Srcs/Linker'
+import { ScrollView } from 'react-native'
 
 const Main
 = ({ nickname, userStats, linkMatchHistory, linkStats }
@@ -13,27 +13,20 @@ const Main
 
 	return (
 	<>
-		<View>
-			<Title>{nickname}</Title>
-			<HView>
-				<TierBox stat={solo} />
-				<TierBox stat={duo} />
-				<TierBox stat={squard} />
-			</HView>
+	<View>
+		<ScrollView>
+		<Title>{nickname}</Title>
+		<DataBox stat={solo} title={"솔로"}/>
+		<DataBox stat={duo} title={"듀오"}/>
+		<DataBox stat={squard} title={"스쿼드"}/>
 			
-			<Title>Most</Title>
-			<HView>
-				<CharacterBox stat={solo}/>
-				<CharacterBox stat={duo}/>
-				<CharacterBox stat={squard}/>
-			</HView>
-			
-			<HView>
-				<Linker link={() => linkStats(1)} title={"통계"}/>
-				<Linker link={() => undefined} title={"루트"}/>
-				<Linker link={() => linkMatchHistory()} title={"히스토리"}/>
-			</HView>
-		</View>
+		<HView>
+			<Linker link={() => linkStats(1)} title={"통계"}/>
+			<Linker link={() => undefined} title={"루트"}/>
+			<Linker link={() => linkMatchHistory()} title={"히스토리"}/>
+		</HView>
+		</ScrollView>
+	</View>
 	</>
 	)
 }

@@ -12,6 +12,8 @@ const Text = styled.Text`
 	font-size : 40px;
 	margin-top : 45%;
 	text-align : center;
+	color : white;
+	font-weight : bold;
 `
 const Loading = () => {
 	return (

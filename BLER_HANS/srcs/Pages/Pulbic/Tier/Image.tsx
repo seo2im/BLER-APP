@@ -5,16 +5,12 @@ const Image = styled.Image<{ width : string, height : string}>`
 	width : ${props => props.width};
 	height : ${props => props.height};
 	resizeMode : stretch;
-
-	margin : auto;
 `
 const NoneBox = styled.View<{width : string, height : string}>`
 	width : ${props => props.width};
 	height : ${props => props.height};
 	border-radius : 10px;
 	background-color: white;
-
-	margin : auto;
 `
 export const None = (width : string, height : string) =>
 <NoneBox width={width} height={height}/>;

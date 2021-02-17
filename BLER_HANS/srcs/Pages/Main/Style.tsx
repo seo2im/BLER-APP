@@ -9,7 +9,6 @@ const Background = styled.ImageBackground`
 const View = styled.View`
 	flex : 1;
 	background-color : rgba(0, 0, 0, 0.7);
-	padding : 2.5%;
 `
 
 const HView = styled(Basic.HView)`
