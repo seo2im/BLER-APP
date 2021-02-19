@@ -10,11 +10,8 @@ const store = createStore(Reducer,
 	composeWithDevTools(applyMiddleware(ReduxThunk))
 );
 import Navigator from './Navigator/Navigator'
-import { initData } from './Storage/storage';
 
 const App = () => {
-	initData();
-
 	return (
     	<Provider store={store}>
 			<Navigator />

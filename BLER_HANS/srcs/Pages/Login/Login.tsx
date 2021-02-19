@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Text, Button, TextInput } from 'react-native'
-import { Background } from '../Main/Style';
+import React, { useState } from 'react'
+import { Title, Text, Button, Id, Background, LoginBox } from './Style';
 
 const Login = ({ link }) => {
 	const [nickname, setNickname] = useState<string>("");
@@ -8,11 +7,16 @@ const Login = ({ link }) => {
 	return (
 	<>
 		<Background source={require("../../Public/background.jpg")} >
-			<Text>BL:ER</Text>
-			<TextInput
+			<LoginBox>
+				<Title>BL:ER</Title>
+				<Id
 				onChangeText={text => setNickname(text)}
 				value={nickname} />
-			<Button title="click" onPress={() => link(nickname)} />
+				<Button title="click" onPress={() => link(nickname)}>
+					<Text>Search</Text>
+				</Button>
+			</LoginBox>
+			
 		</Background>
 	</>
 	)

@@ -25,7 +25,7 @@ const Navigator = () => {
 	return (
 		<>
 			<Menu visible={visible} setVisible={setVisible} navigation={navRef.current}/>
-			<NavigationContainer>
+			<NavigationContainer ref={navRef}>
 				<PageStack setVisible={setVisible}/>
 			</NavigationContainer>
 		</>

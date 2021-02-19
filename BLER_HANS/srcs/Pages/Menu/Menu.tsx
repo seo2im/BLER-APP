@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { Animated, Modal } from 'react-native'
 import { View, Text, Button } from './Style'
 
-const Menu = ({ visible, setVisible }) => {
+const Menu = ({ visible, setVisible, logout }) => {
 	const slideAnim = useRef(new Animated.Value(-300)).current;
 	const slideIn = () => {
 		Animated.timing(slideAnim, {
@@ -38,6 +38,13 @@ const Menu = ({ visible, setVisible }) => {
 					slideOut();
 				}}>
 				<Text>Close</Text>
+			</Button>
+			<Button	activeOpacity={1}
+				onPress={() => {
+					slideOut();
+					logout();
+				}}>
+				<Text>Logout</Text>
 			</Button>
 			</View>
 		</Modal>

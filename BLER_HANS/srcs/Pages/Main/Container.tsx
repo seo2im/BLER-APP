@@ -17,7 +17,7 @@ const Container = ({ route, navigation }) => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if (!data)
+		if (!data || data.user.nickname != nickname)
 			dispatch(getUserNum(nickname));
 	}, []);
 
