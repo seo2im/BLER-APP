@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux';
 import { tState } from '../../Modules'
 
 import { getUserNum } from '../../Modules/userNum/thunks'
 import { getUserStats } from '../../Modules/userStats/thunks'
-import * as storage from '../../Storage/storage'
 
 import Main from './Main'
 import { Loading, Error } from '../Pulbic'
@@ -34,6 +33,8 @@ const Connector = ({ nickname, userNum, navigation }) => {
 	const { data, loading, error } = useSelector((state : tState) => state.userStats.data);
 	const dispatch = useDispatch();
 
+	const [season, setSeason] = useState<number>(1);
+
 	const linkMatchHistory = () => {
 		navigation.navigate("MatchHistory", { userNum });
 	}
@@ -42,19 +43,21 @@ const Connector = ({ nickname, userNum, navigation }) => {
 	}
 
 	useEffect(() => {
-		dispatch(getUserStats(userNum, 1));
-	}, []);
-
+		dispatch(getUserStats(userNum, season));
+	}, [season]);
+	
+	/* userStat api when error, get success to code 404 and get error code.. This is problem of api server */
 	return (
 	<>
-		<Background source={require("../../Public/background.jpg")}>
-			{loading &&  <Loading />}
-			{error &&  <Error />}
-			{data &&  <Main nickname={nickname}
+	<Background source={require("../../Public/background.jpg")}>
+		{loading &&  <Loading />}
+		{((data && data.code === 404) || error) && <Error />} 
+		{data && data.code !== 404 && <Main nickname={nickname}
+							setSeason={setSeason}
 							userStats={data.userStats}
 							linkMatchHistory={linkMatchHistory}
 							linkStats={linkStats}/>}
-		</Background>
+	</Background>
 	</>
 	)
 }

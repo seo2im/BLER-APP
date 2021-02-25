@@ -16,9 +16,7 @@ const Text = styled.Text`
 const Error = () => {
 	return (
 		<View>
-			<Background source={require("../../Public/background.jpg")}>
-				<Text>데이터를 불러오는데 실패했어요!</Text>
-			</Background>
+			<Text>데이터를 불러오는데 실패했어요!</Text>
 		</View>
 	)
 }

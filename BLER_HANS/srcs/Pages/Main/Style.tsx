@@ -25,4 +25,13 @@ const Title = styled.Text`
 	font-size : 20px;
 `
 
-export { Background, View, Title, List, HView };
+const Button = styled.TouchableOpacity`
+	width	: 50px;
+	height	: 20px;
+	margin-right : 10px;
+`
+const Text = styled.Text`
+	color : white;
+`
+
+export { Background, View, Title, List, HView, Button, Text };

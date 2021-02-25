@@ -16,7 +16,7 @@ export const getAPI = async (userNum : number, seasonId : number) => {
 export type tUserStatsAPI = {
     code:      number;
     message:   string;
-    userStats: tUserStat[];
+    userStats?: tUserStat[];
 }
 
 export type tUserStat = {
