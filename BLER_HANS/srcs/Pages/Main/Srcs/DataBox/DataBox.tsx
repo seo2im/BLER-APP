@@ -1,6 +1,6 @@
 import React from 'react'
 import { tUserStat } from '../../../../Modules/userStats/api'
-import { TierTitle, TierBoxView, TierView, HView, Title, View, NoData, TextBox, Text } from './Style'
+import { TierTitle, TierBoxView, TierView, HView, Title, View, NoData, TextBox, Text, Click } from './Style'
 import { Tier, Character } from '../../../Pulbic'
 
 
@@ -26,11 +26,12 @@ const NoneBox
 }
 
 const Box
-= ({ stat, title } : { stat : tUserStat, title : string }) => {
+= ({ stat, title, link } : { stat : tUserStat, title : string, link : () => void }) => {
 	const { mmr, characterStats, averageKills, totalWins} = stat;
 	const { characterCode, totalGames } = characterStats[0];
 
 	return (
+		<Click onPress={() => link()}>
 		<TierBoxView colors={colorCode[Math.floor(mmr / 400)]}>
 			<Title>{title}</Title>
 			<HView>
@@ -52,16 +53,17 @@ const Box
 				</View>
 			</HView>
 		</TierBoxView>
+		</Click>
 	)
 }
 
 
 const DataBox
-= ({ stat, title } : { stat? : tUserStat, title : string}) => {
+= ({ stat, title, link } : { stat? : tUserStat, title : string, link : () => void}) => {
 	return (
 		<>
 		{!stat ? <NoneBox title={title}/> :
-		 <Box stat={stat} title={title}/>}
+		 <Box stat={stat} title={title} link={link}/>}
 		</>
 	)
 }

@@ -5,7 +5,7 @@ export type tGamesAPI = {
     code:      number;
     message:   string;
     userGames: tUserGame[];
-    next:      number;
+    next?:     number;
 }
 
 export type tUserGame = {

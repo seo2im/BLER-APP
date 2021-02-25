@@ -2,6 +2,9 @@ import styled from 'styled-components/native'
 import LinearGradient from 'react-native-linear-gradient'
 import * as Basic from '../../../../Styles/Basic'
 
+export const Click = styled.TouchableOpacity`
+
+`
 export const TierBoxView = styled(LinearGradient)`
 	width	: 95%;
 	height : 250px;

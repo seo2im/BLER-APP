@@ -35,8 +35,8 @@ const Connector = ({ nickname, userNum, navigation }) => {
 
 	const [season, setSeason] = useState<number>(1);
 
-	const linkMatchHistory = () => {
-		navigation.navigate("MatchHistory", { userNum });
+	const linkMatchHistory = (season : number, matchingTeamMode : number) => {
+		navigation.navigate("MatchHistory", { userNum, season, matchingTeamMode});
 	}
 	const linkStats = (matchMode) => {
 		navigation.navigate("Stats", { userNum, matchMode });
@@ -53,6 +53,7 @@ const Connector = ({ nickname, userNum, navigation }) => {
 		{loading &&  <Loading />}
 		{((data && data.code === 404) || error) && <Error />} 
 		{data && data.code !== 404 && <Main nickname={nickname}
+							season={season}
 							setSeason={setSeason}
 							userStats={data.userStats}
 							linkMatchHistory={linkMatchHistory}
