@@ -1,5 +1,12 @@
 import React from 'react'
-import { Text, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
+import {
+	Background,
+	View,
+	Box,
+	Text
+} from './Style'
+import { Character } from '../Pulbic'
 
 import { tUserGame } from '../../Modules/games/api'
 
@@ -8,21 +15,22 @@ const MatchHistory = ({ userGames } : { userGames : tUserGame[] }) => {
 		
 	} = userGames;
 	return (
-		<>
+		<Background source={require("../../Public/background.jpg")}>
+		<View>
 			<FlatList
 				data={userGames}
-				renderItem={({ item }) => (
-					<>
-						<Text>{item.matchingMode}</Text>
-						<Text>{item.characterLevel}</Text>
-						<Text>{item.gameRank}</Text>
+				renderItem={({ item } : { item : tUserGame }) => (
+					<Box>
+						<Character code={1} width={"40px"} height={"40px"}/>
+						<Text>Rank {item.gameRank}</Text>
 						<Text>{item.playerKill}/{item.playerAssistant}/{item.monsterKill}</Text>
 						<Text>{item.damageToPlayer}</Text>
-					</>
+					</Box>
 				)}
 				keyExtractor={item => String(item.gameId)}
 			/>
-		</>
+		</View>
+		</Background>
 	)
 }
 

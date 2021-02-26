@@ -9,7 +9,7 @@ import { getUserStats } from '../../Modules/userStats/thunks'
 import Main from './Main'
 import { Loading, Error } from '../Pulbic'
 import { Background } from './Style';
-
+/*
 const Container = ({ route, navigation }) => {
 	const { nickname } = route.params;
 	const { data, loading, error } = useSelector((state : tState) => state.userNum.data);
@@ -28,6 +28,18 @@ const Container = ({ route, navigation }) => {
 		</>
 	)
 }
+*/
+const Container = ({ route, navigation }) => {
+	const nickname = "seolim"
+	const userNum = 755835
+
+	return (
+		<>
+			<Connector nickname={nickname} userNum={userNum} navigation={navigation}/>
+		</>
+	)
+}
+
 
 const Connector = ({ nickname, userNum, navigation }) => {
 	const { data, loading, error } = useSelector((state : tState) => state.userStats.data);

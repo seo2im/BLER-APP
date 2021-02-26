@@ -6,27 +6,22 @@ import { getGames } from '../../Modules/games/thunks'
 
 import { tUserGame } from '../../Modules/games/api'
 import MatchHistory from './MatchHistory'
+import { ThunkDispatch } from 'redux-thunk';
 
 const Container = ({ route, navigation }) => {
-	const { userNum, season, matchingTeamMode,  } = route.params;
+	const { userNum, season, matchingTeamMode } = route.params;
 	const { data, loading, error } = useSelector((state : tState) => state.games.data);
 	const [ list, setList ] = useState<tUserGame[]>([]);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		/* Todo : must call it when it need */
-		dispatch(getGames(userNum));
-	}, []);
-	useEffect(() => {
-		if (!data || (data && data.code !== 200))
-			return ;
-		setList(list.slice(10));
-		
-		setList([...list, ...data.userGames.filter(game => 
-			game.seasonId === season && game.matchingTeamMode === matchingTeamMode)])
-		if (list.length < 10)
+		const func = async () => {
 			dispatch(getGames(userNum));
-	}, [data])
+		}
+		func().then(e => {
+			console.log(data);
+		});
+	}, [])
 
 	return (
 		<>

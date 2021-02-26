@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 const Stack = createStackNavigator();
-
+/*
 const PageStack = ({ setVisible }) => {
 	return (
 		<Stack.Navigator screenOptions={{
@@ -17,6 +17,18 @@ const PageStack = ({ setVisible }) => {
 		</Stack.Navigator>
 	)
 }
+*/ /* Test Page For API error until 3.3 */
+const PageStack = ({ setVisible }) => {
+	return (
+		<Stack.Navigator screenOptions={{
+			header : ({}) => (<Header func={() => setVisible(true)}/>)}}>
+			<Stack.Screen name="Main" component={Main}/>
+			<Stack.Screen name="Stats" component={Stats}/>
+			<Stack.Screen name="MatchHistory" component={MatchHistory}/>
+		</Stack.Navigator>
+	)
+}
+
 
 const Navigator = () => {
 	const [ visible, setVisible ] = useState<boolean>(false);

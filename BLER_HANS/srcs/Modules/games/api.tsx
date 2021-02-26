@@ -77,9 +77,9 @@ export type tUserGame = {
     skillDamageToPlayer:       number;
 }
 
-export const getAPI = async (userNum : number) => {
+export const getAPI = async (userNum : number, next? : number) => {
 	const response = await axios({
-		url : `https://open-api.bser.io/v1/user/games/${userNum}`,
+		url : `https://open-api.bser.io/v1/user/games/${userNum}?next=${next ? next : ""}`,
 		method : 'get',
 		headers : {
 			'accept' : 'application/json',
