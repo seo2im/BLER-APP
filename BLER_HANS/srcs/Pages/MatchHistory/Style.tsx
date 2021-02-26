@@ -6,22 +6,25 @@ export const Background = styled.ImageBackground`
 	height : 100%;
 `
 export const View = styled.View`
-	flex	: 1;
+	flex : 1;
 	background-color : rgba(0, 0, 0, 0.7);
 `
 export const Text = styled.Text`
-	color	: white;
+	color		: white;
+	margin		: auto 0;
+`
+export const Click = styled.TouchableOpacity`
+
 `
 export const Box = styled.View`
-	flex			: 1;
 	flex-direction	: row;
 	justify-content	: space-between;
 
 	width		: 99%;
-	height		: 50px;
-	margin		: auto;
+	height		: 80px;
+	margin		: 3px auto;
+
 	borderWidth	: 2px;
 	borderColor	: grey;
 	background	: black;
 `
-export const Character = styled.View

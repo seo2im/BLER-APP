@@ -9,7 +9,7 @@ import MatchHistory from './MatchHistory'
 import { ThunkDispatch } from 'redux-thunk';
 
 const Container = ({ route, navigation }) => {
-	const { userNum, season, matchingTeamMode } = route.params;
+	const { userNum, season, matchingTeamMode, mmr } = route.params;
 	const { data, loading, error } = useSelector((state : tState) => state.games.data);
 	const [ list, setList ] = useState<tUserGame[]>([]);
 	const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const Container = ({ route, navigation }) => {
 		<>
 			{loading && <Text>Loading</Text>}
 			{error && <Text>Error</Text>}
-			{data && <MatchHistory userGames={data.userGames}/>}
+			{data && <MatchHistory userGames={data.userGames} mmr={mmr}/>}
 		</>
 	)
 }

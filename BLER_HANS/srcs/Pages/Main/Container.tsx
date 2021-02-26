@@ -47,8 +47,8 @@ const Connector = ({ nickname, userNum, navigation }) => {
 
 	const [season, setSeason] = useState<number>(1);
 
-	const linkMatchHistory = (season : number, matchingTeamMode : number) => {
-		navigation.navigate("MatchHistory", { userNum, season, matchingTeamMode});
+	const linkMatchHistory = (season : number, matchingTeamMode : number, mmr : number) => {
+		navigation.navigate("MatchHistory", { userNum, season, matchingTeamMode, mmr});
 	}
 	const linkStats = (matchMode) => {
 		navigation.navigate("Stats", { userNum, matchMode });

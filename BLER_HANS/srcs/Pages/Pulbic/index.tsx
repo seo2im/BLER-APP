@@ -1,4 +1,5 @@
 export { default as Loading } from './Loading'
 export { default as Error } from './Error'
-export { default as Character } from './Charater/Character'
+export { default as CharacterBox } from './Character/CharacterBox'
+export { default as CharacterCircle } from './Character/CharacterCircle'
 export { default as Tier } from './Tier/Tier'

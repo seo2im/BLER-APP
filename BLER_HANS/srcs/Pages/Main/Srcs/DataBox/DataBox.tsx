@@ -1,7 +1,7 @@
 import React from 'react'
 import { tUserStat } from '../../../../Modules/userStats/api'
 import { TierTitle, TierBoxView, TierView, HView, Title, View, NoData, TextBox, Text, Click } from './Style'
-import { Tier, Character } from '../../../Pulbic'
+import { Tier, CharacterBox } from '../../../Pulbic'
 
 
 const tierName = ["아이언 4", "아이언 3", "아이언 2", "아이언 1",
@@ -49,7 +49,7 @@ const Box
 				
 				<View>
 					<TierTitle>MOST</TierTitle>
-					<Character code={characterCode} width={"110px"} height={"140px"}/>
+					<CharacterBox code={characterCode} width={"110px"} height={"140px"}/>
 				</View>
 			</HView>
 		</TierBoxView>
