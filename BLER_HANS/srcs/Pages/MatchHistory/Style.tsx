@@ -22,7 +22,8 @@ export const Box = styled.View`
 
 	width		: 99%;
 	height		: 80px;
-	margin		: 3px auto;
+	padding		: 0 10px;
+	margin		: 3px auto; 
 
 	borderWidth	: 2px;
 	borderColor	: grey;

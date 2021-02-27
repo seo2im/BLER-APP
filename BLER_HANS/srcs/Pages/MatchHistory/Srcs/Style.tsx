@@ -9,4 +9,9 @@ export const View = styled.View`
 export const Text = styled.Text`
 	color	: white;
 `
+/* Graph */
+export const GraphView = styled.View`
+	width	: 100%;
+	padding	: 10px;
+`
 

@@ -3,10 +3,15 @@ import styled from 'styled-components/native'
 import srcs from '../../../Public'
 
 const Image = styled.Image<{width : number, height : number}>`
-	width : ${props => props.width}px;
-	height : ${props => props.height}px;
-	resizeMode : cover;
+	width	: ${props => props.width}px;
+	height	: ${props => props.height}px;
+	
 	border-radius	: ${props => props.width / 2}px;
+	resizeMode		: cover;
+	background		: white;
+	
+	margin : auto 0;
+	
 `
 const NoneBox = styled.View<{width : number, height : number}>`
 	width : ${props => props.width}px;
@@ -19,9 +24,9 @@ export const None = (width : number, height : number) =>
 
 
 type Prob = {
-	code : number,
-	width : number,
-	height : number
+	code	: number,
+	width	: number,
+	height	: number,
 }
 
 const CharacterCircle = ({ code, width, height } : Prob) => {
