@@ -16,10 +16,12 @@ const apiReducer = createReducer<tApiState, tApiAction>(initialState, {
 		...state,
 		data : asyncState.success(action.payload)
 	}),
-	[GAMES_GET_ERROR] : (state, action) => ({
+	[GAMES_GET_ERROR] : (state, action) => {
+		console.log(action.payload);
+		return({
 		...state,
 		data : asyncState.error(action.payload)
-	})
+	})}
 })
 
 export default apiReducer;

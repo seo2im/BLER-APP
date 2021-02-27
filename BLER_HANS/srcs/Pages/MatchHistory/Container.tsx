@@ -1,33 +1,39 @@
 import React, { useEffect, useState } from 'react'
-import { Text } from 'react-native'
+import { Loading, Error } from '../Pulbic'
 import { useSelector, useDispatch } from 'react-redux';
 import { tState } from '../../Modules'
 import { getGames } from '../../Modules/games/thunks'
 
 import { tUserGame } from '../../Modules/games/api'
 import MatchHistory from './MatchHistory'
-import { ThunkDispatch } from 'redux-thunk';
 
 const Container = ({ route, navigation }) => {
 	const { userNum, season, matchingTeamMode, mmr } = route.params;
 	const { data, loading, error } = useSelector((state : tState) => state.games.data);
 	const [ list, setList ] = useState<tUserGame[]>([]);
-	const dispatch = useDispatch();
+	const [ firstMmr, setFirstMmr ] = useState<number>(mmr);
 
+	const dispatch = useDispatch();
+	const next = (newMmr) => {
+		setFirstMmr(newMmr);
+		setList(list.slice(10));
+	}
 	useEffect(() => {
-		const func = async () => {
-			dispatch(getGames(userNum));
-		}
-		func().then(e => {
-			console.log(data);
-		});
-	}, [])
+		if (data)
+			setList([...list, ...data.userGames.filter(e => e.seasonId === season && e.matchingTeamMode === matchingTeamMode )]);
+	}, [data])
+	useEffect(() => {
+		if (list.length < 10)
+			setTimeout(() => 
+				dispatch(getGames(userNum, data ? data.next : undefined))
+			, 1000)
+	}, [list])
 
 	return (
 		<>
-			{loading && <Text>Loading</Text>}
-			{error && <Text>Error</Text>}
-			{data && <MatchHistory userGames={data.userGames} mmr={mmr}/>}
+			{(loading || list.length < 10) && <Loading />}
+			{error && <Error />}
+			{(data && list.length >= 10) && <MatchHistory userGames={list.slice(0, 10)} mmr={firstMmr} next={next}/>}
 		</>
 	)
 }
