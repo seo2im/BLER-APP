@@ -13,5 +13,7 @@ export const Text = styled.Text`
 export const GraphView = styled.View`
 	width	: 100%;
 	padding	: 10px;
+
+	background : white;
 `
 
