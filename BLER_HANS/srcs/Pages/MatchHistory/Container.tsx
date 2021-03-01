@@ -19,8 +19,7 @@ const Container = ({ route, navigation }) => {
 		const backHandler = BackHandler.addEventListener(
 			"hardwareBackPress",
 			() => {
-				console.log("PRESS BACK")
-				dispatch(getGames(userNum))
+				dispatch(getGames(0))
 				navigation.navigate("Main");
 				return true;
 			})
@@ -35,13 +34,12 @@ const Container = ({ route, navigation }) => {
 
 
 	useEffect(() => {
-		console.log("data")
-		data ? console.log("ID", data.userGames.map(e => e.gameId)) : undefined;
+		if (data && data.code === 404)
+			return ;
 		if (data)
 			setList([...list, ...data.userGames.filter(e => e.seasonId === season && e.matchingTeamMode === matchingTeamMode )]);
 	}, [data])
 	useEffect(() => {
-		console.log("LAST", list.map(e => e.gameId));
 		if (list.length < 10)
 			setTimeout(() => 
 				dispatch(getGames(userNum, data ? data.next : undefined))
@@ -58,3 +56,4 @@ const Container = ({ route, navigation }) => {
 }
 
 export default Container;
+

@@ -25,8 +25,6 @@ const MatchHistory = ({ userGames, mmr, next } : Prop) => {
 	const [ openItem, setOpenItem ] = useState<number>(-1);
 	const mmrs = [mmr, ...userGames.map(game => game.mmrBefore)].reverse();
 
-	console.log(userGames.map(e => e.gameId));
-
 	let now : number = mmr;
 	let before : number = mmr;
 	return (
