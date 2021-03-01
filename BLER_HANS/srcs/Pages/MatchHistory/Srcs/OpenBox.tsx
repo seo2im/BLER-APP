@@ -11,6 +11,7 @@ import {
 	SkillParmeter,
 	NorParameter
 } from './Style'
+import srcs from '../../../Public'
 
 const OpenBox = ({ game } : { game : tUserGame }) => {
 	const [deal, setDeal] = useState<number>(100);
@@ -18,25 +19,28 @@ const OpenBox = ({ game } : { game : tUserGame }) => {
 	const { 
 		playerKill, playerAssistant, damageToPlayer,
 		monsterKill, damageToMonster,
-		basicAttackDamageToPlayer, skillDamageToPlayer, trapDamageToPlayer
+		basicAttackDamageToPlayer, skillDamageToPlayer, trapDamageToPlayer,
+		equipment
 	} = game;
 
 	useEffect(() => {
 		setDeal(Math.floor(basicAttackDamageToPlayer / damageToPlayer * 100));
 	}, [])
 
+
+
 	return (
 		<OpenBoxView>
 			<Grid>
 				<GridColumn>
-					<GridItem/>
-					<GridItem/>
-					<GridItem/>
+					<GridItem source={srcs.item.Weapon[equipment["0"]]}/>
+					<GridItem source={srcs.item.Chest[equipment["1"]]}/>
+					<GridItem source={srcs.item.Head[equipment["2"]]}/>
 				</GridColumn>
 				<GridColumn>
-					<GridItem/>
-					<GridItem/>
-					<GridItem/>
+					<GridItem source={srcs.item.Arm[equipment["3"]]}/>
+					<GridItem source={srcs.item.Leg[equipment["4"]]}/>
+					<GridItem source={srcs.item.Trinket[equipment["5"]]}/>
 				</GridColumn>
 			</Grid>
 			<InfoBox>

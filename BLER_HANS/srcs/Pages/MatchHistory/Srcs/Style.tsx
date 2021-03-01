@@ -21,7 +21,7 @@ export const GridColumn = styled.View`
 	flex-direction : row;
 	width	: 100%;
 `
-export const GridItem = styled.View`
+export const GridItem = styled.ImageBackground`
 	width 	: 33%;
 	height	: 40px;
 	

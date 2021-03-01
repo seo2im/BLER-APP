@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import srcs from '../../../Public'
 
 const Image = styled.Image<{ width : string, height : string}>`
 	width : ${props => props.width};
@@ -15,21 +16,21 @@ const NoneBox = styled.View<{width : string, height : string}>`
 export const None = (width : string, height : string) =>
 <NoneBox width={width} height={height}/>;
 export const Iron = (width : string, height : string) =>
-<Image source={require("../../../Public/tier/iron.png")} width={width} height={height}/>;
+<Image source={srcs.tier.iron} width={width} height={height}/>;
 export const Bronze = (width : string, height : string) =>
-<Image source={require("../../../Public/tier/bronze.png")} width={width} height={height}/>
+<Image source={srcs.tier.bronze} width={width} height={height}/>
 export const Silver = (width : string, height : string) =>
-<Image source={require("../../../Public/tier/silver.png")} width={width} height={height}/>
+<Image source={srcs.tier.silver} width={width} height={height}/>
 export const Gold = (width : string, height : string) =>
-<Image source={require("../../../Public/tier/gold.png")} width={width} height={height}/>
+<Image source={srcs.tier.gold} width={width} height={height}/>
 export const Platinum = (width : string, height : string) =>
-<Image source={require("../../../Public/tier/platinum.png")} width={width} height={height}/>
+<Image source={srcs.tier.platinum} width={width} height={height}/>
 export const Diamond = (width : string, height : string) =>
-<Image source={require("../../../Public/tier/diamond.png")} width={width} height={height}/>
+<Image source={srcs.tier.diamond} width={width} height={height}/>
 export const Demigot = (width : string, height : string) =>
-<Image source={require("../../../Public/tier/demigot.png")} width={width} height={height}/>
+<Image source={srcs.tier.demigot} width={width} height={height}/>
 export const Eternity = (width : string, height : string) =>
-<Image source={require("../../../Public/tier/eternity.png")} width={width} height={height}/>
+<Image source={srcs.tier.eternity} width={width} height={height}/>
 
 export const getImg = (mmr : number) => {		
 	if (mmr == -1)

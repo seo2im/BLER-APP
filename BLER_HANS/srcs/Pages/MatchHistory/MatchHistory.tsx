@@ -45,7 +45,7 @@ const MatchHistory = ({ userGames, mmr, next } : Prop) => {
 						<Text>Rank {item.gameRank}</Text>
 					</InBox>
 					<InBox>
-						<CharacterCircle code={1} width={50} height={50}/>
+						<CharacterCircle code={item.characterNum} width={50} height={50}/>
 						<WeaponeIcon>
 							<CharacterCircle code={1} width={20} height={20}/>
 						</WeaponeIcon>
