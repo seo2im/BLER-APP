@@ -20,6 +20,8 @@ export const Click = styled.TouchableOpacity`
 
 `
 export const Box = styled.View`
+	position : relative;
+
 	flex-direction	: row;
 	justify-content	: space-between;
 
@@ -28,9 +30,21 @@ export const Box = styled.View`
 	padding		: 0 10px;
 	margin		: 3px auto; 
 
-	borderWidth	: 2px;
+	borderRightWidth	: 2px;
+	borderTopWidth		: 2px;
+	borderBottomWidth	: 2px;
 	borderColor	: grey;
 	background	: black;
+`
+export const Bar = styled.View`
+	position	: absolute;
+	top			: -2px;
+	left		: 0;
+
+	width	: 10px;
+	height	: 80px;
+
+	background : #F2CB05;
 `
 export const InBox = styled.View`
 	position	: relative;

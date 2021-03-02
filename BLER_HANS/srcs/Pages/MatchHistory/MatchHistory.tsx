@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { FlatList } from 'react-native'
 import {
 	Background,
 	View,
@@ -9,7 +8,8 @@ import {
 	InBox,
 	WeaponeIcon,
 	TEMP,
-	Next
+	Next,
+	Bar
 } from './Style'
 import { OpenBox, Grpah } from "./Srcs"
 import { CharacterCircle } from '../Pulbic'
@@ -41,8 +41,9 @@ const MatchHistory = ({ userGames, mmr, next } : Prop) => {
 				<TEMP key={index}>
 				<Click onPress={() => setOpenItem(openItem !== index ? index : -1)}>
 				<Box>
+					<Bar />
 					<InBox>
-						<Text>Rank {item.gameRank}</Text>
+						<Text>  # {item.gameRank}</Text>
 					</InBox>
 					<InBox>
 						<CharacterCircle code={item.characterNum} width={50} height={50}/>

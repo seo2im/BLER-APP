@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Svg, { Polyline, Text, TSpan } from 'react-native-svg'
+import Svg, { Polyline, Text, TSpan, Circle } from 'react-native-svg'
 import {
-	GraphView
+	GraphView, GraphText
 } from './Style'
 type Prop = {
 	mmrs : number[];
@@ -12,8 +12,8 @@ const Graph = ({ mmrs } : Prop) => {
 	const height = 150;
 
 	const ranging = (max, min) => {
-		const top = Math.ceil(max / 100) * 100
-		const bottom = Math.floor(min / 100) * 100;
+		const top = Math.ceil(max / 10) * 10
+		const bottom = Math.floor(min / 10) * 10;
 
 		const range = (top - bottom);
 		const term = Math.floor(range / 10);
@@ -36,8 +36,9 @@ const Graph = ({ mmrs } : Prop) => {
 
 	return (
 		<GraphView>
+		<GraphText>MMR Graph</GraphText>
 		<Svg height={height + 20} width="100%">
-			<Text x="0" y="0" fill="black">
+			<Text x="0" y="0" fill="white">
 				{value.map((v, i) => 
 					<TSpan x="0" y={v[1] + 10} key={i}>{v[0]}</TSpan>)}
 			</Text>
@@ -45,13 +46,14 @@ const Graph = ({ mmrs } : Prop) => {
 				<Polyline key={i}
 					points={`31,${v[1] + 10} 1000,${v[1] + 10}`}
 					fill="none"
-					stroke="green"
-					strokeWidth="3"/>)}
+					stroke="white"
+					strokeWidth="1"/>)}
+			{points.map((e, i) => <Circle key={i} cx={i * 31 + 35} cy={e + 10} r="3" fill="#F2CB05"/>)}
 			<Polyline 
 				points={points.map((e, i) => `${i * 31 + 35},${e + 10}`).join(' ')}
 				fill="none"
-				stroke="black"
-				strokeWidth="3"
+				stroke="#F2CB05"
+				strokeWidth="1.5"
 				/>
 		</Svg>
 		</GraphView>

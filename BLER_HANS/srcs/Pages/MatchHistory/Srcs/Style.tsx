@@ -55,6 +55,11 @@ export const GraphView = styled.View`
 	width	: 100%;
 	padding	: 10px;
 
-	background : white;
+	background	: #090B0D;
+	borderWidth	: 2px;
+	borderColor	: #666666;
+`
+export const GraphText = styled(Text)`
+	
 `
 
