@@ -19,9 +19,9 @@ export const theme:DefaultTheme = {
 		GBTrend : {
 			dark		: "#181D26",
 			darkGrey	: "#4F5259",
-			Grey		: "#81858C",
+			grey		: "#81858C",
 			lightBrown	: "#D99B77",
-			Brown		: "#733F2D",
+			brown		: "#733F2D",
 		},
 
 		BYTrend : {

@@ -24,9 +24,9 @@ declare module 'styled-components' {
 			GBTrend : {
 				dark		: string,
 				darkGrey	: string,
-				Grey		: string,
+				grey		: string,
 				lightBrown	: string,
-				Brown		: string,
+				brown		: string,
 			},
 			
 			BYTrend : {

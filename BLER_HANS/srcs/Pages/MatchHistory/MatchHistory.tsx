@@ -5,13 +5,11 @@ import {
 	Box,
 	Text,
 	Click,
-	InBox,
 	WeaponeIcon,
-	TEMP,
+	Item,
 	Next,
-	Bar
 } from './Style'
-import { OpenBox, Grpah } from "./Srcs"
+import { OpenBox, Grpah, MatchBox } from "./Components"
 import { CharacterCircle } from '../Pulbic'
 
 import { tUserGame } from '../../Modules/games/api'
@@ -37,33 +35,14 @@ const MatchHistory = ({ userGames, mmr, next } : Prop) => {
 			{userGames.map((item, index) => {
 				now = before;
 				before = item.mmrBefore;
+				
 				return (
-				<TEMP key={index}>
-				<Click onPress={() => setOpenItem(openItem !== index ? index : -1)}>
-				<Box>
-					<Bar />
-					<InBox>
-						<Text>  # {item.gameRank}</Text>
-					</InBox>
-					<InBox>
-						<CharacterCircle code={item.characterNum} width={50} height={50}/>
-						<WeaponeIcon>
-							<CharacterCircle code={1} width={20} height={20}/>
-						</WeaponeIcon>
-					</InBox>
-					<InBox>
-						<Text>{item.playerKill}K/{item.playerAssistant}A</Text>
-					</InBox>
-					<InBox>
-						<Text>{item.damageToPlayer}</Text>
-					</InBox>
-					<InBox>
-						<Text>mmr : {now}/{now - before}</Text>
-					</InBox>
-				</Box>
-				</Click>
-				{openItem === index && <OpenBox game={item}/>}
-				</TEMP>
+					<Box key={index}>
+						<Click onPress={() => setOpenItem(openItem !== index ? index : -1)}>
+							<MatchBox game={item} nowMmr={now} beforeMmr={before} />
+						</Click>
+						{openItem === index && <OpenBox game={item}/>}
+					</Box>
 			)})}
 		</View>
 		</Background>

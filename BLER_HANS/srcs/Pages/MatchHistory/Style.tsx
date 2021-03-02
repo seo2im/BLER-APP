@@ -1,17 +1,9 @@
 import styled from 'styled-components/native'
 import * as Basic from '../../Styles/Basic'
 
-export const Background = styled.ImageBackground`
-	width : 100%;
-	height : 100%;
-`
-export const View = styled.ScrollView`
-	flex : 1;
-	background-color : rgba(0, 0, 0, 0.7);
-`
-export const TEMP = styled.View`
-
-`
+export const Background = styled(Basic.Background)``
+export const View = styled(Basic.Scroll)``
+export const Box = styled(Basic.View)``
 export const Text = styled.Text`
 	color		: white;
 	margin		: auto 0;
@@ -19,7 +11,7 @@ export const Text = styled.Text`
 export const Click = styled.TouchableOpacity`
 
 `
-export const Box = styled.View`
+export const MatchBox = styled.View`
 	position : relative;
 
 	flex-direction	: row;
@@ -36,17 +28,8 @@ export const Box = styled.View`
 	borderColor	: grey;
 	background	: black;
 `
-export const Bar = styled.View`
-	position	: absolute;
-	top			: -2px;
-	left		: 0;
 
-	width	: 10px;
-	height	: 80px;
-
-	background : #F2CB05;
-`
-export const InBox = styled.View`
+export const Item = styled.View`
 	position	: relative;
 	width		: 20%;
 	height		: 100%;
