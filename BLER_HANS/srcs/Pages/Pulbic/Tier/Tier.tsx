@@ -1,11 +1,22 @@
 import React from 'react'
-import * as Img from './Image'
+import srcs from '../../../Public'
+import {
+	Box
+} from './Style'
+type Prop = {
+	mmr		: number,
+	width	: number,
+	height	: number
+}
+const tierName = ["iron", "bronze", "silver",
+				"gold", "platinum", "diamond",
+				"demigot", "eternity"]
 
-const Tier = ({ mmr, width, height } : { mmr : number, width : string, height : string}) => {
+const Tier = ({ mmr, width, height } : Prop) => {
+	
 	return (
-		<>
-			{Img.getImg(mmr)(width, height)}
-		</>
+		<Box source={srcs.tier[tierName[Math.floor(mmr / 400)]]}
+			width={width} height={height}/>
 	)
 }
 

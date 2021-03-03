@@ -16,7 +16,7 @@ export const View = styled(Basic.HView)`
 	borderColor	: ${({ theme }) => theme.Color.GBTrend.grey};
 	background	: ${({ theme }) => theme.Color.black};
 `
-export const Bar = styled.View`
+export const Bar = styled<{ rank : string }>(Basic.View)`
 	position	: absolute;
 	top			: -2px;
 	left		: 0;
@@ -24,7 +24,7 @@ export const Bar = styled.View`
 	width	: 10px;
 	height	: 80px;
 
-	background : #F2CB05;
+	background	: ${({ theme, rank }) => theme.Color.RankColor[rank]};
 `
 export const Item = styled.View`
 	position	: relative;
@@ -38,4 +38,8 @@ export const WeaponeIcon = styled.View`
 `
 export const Text = styled(Basic.KorText)`
 	margin	: auto 0;
+`
+export const Rank = styled<{ rank : string }>(Basic.EngTitle)`
+	margin	: auto 0;
+	color	: ${({ theme, rank }) => theme.Color.RankColor[rank]};
 `

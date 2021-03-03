@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Svg, { Polyline, Text, TSpan, Circle } from 'react-native-svg'
+import { Dimensions } from 'react-native'
 import {
 	GraphView, GraphText
 } from './Style'
 type Prop = {
 	mmrs : number[];
 }
+const deviceW = Dimensions.get('window').width;
+const deviceH = Dimensions.get('window').height;
+
 const Graph = ({ mmrs } : Prop) => {
 	const [points, setPoints] = useState<number[]>([]);
 	const [value, setValue] = useState<number[][]>([]);
@@ -48,9 +52,9 @@ const Graph = ({ mmrs } : Prop) => {
 					fill="none"
 					stroke="white"
 					strokeWidth="1"/>)}
-			{points.map((e, i) => <Circle key={i} cx={i * 31 + 35} cy={e + 10} r="3" fill="#F2CB05"/>)}
+			{points.map((e, i) => <Circle key={i} cx={i * deviceW / 13 + 45} cy={e + 10} r="3" fill="#F2CB05"/>)}
 			<Polyline 
-				points={points.map((e, i) => `${i * 31 + 35},${e + 10}`).join(' ')}
+				points={points.map((e, i) => `${i * deviceW / 13 + 45},${e + 10}`).join(' ')}
 				fill="none"
 				stroke="#F2CB05"
 				strokeWidth="1.5"

@@ -7,10 +7,8 @@ import {
 	Click,
 	WeaponeIcon,
 	Item,
-	Next,
 } from './Style'
-import { OpenBox, Grpah, MatchBox } from "./Components"
-import { CharacterCircle } from '../Pulbic'
+import { OpenBox, Grpah, MatchBox, NextBtn } from "./Components"
 
 import { tUserGame } from '../../Modules/games/api'
 type Prop = {
@@ -29,9 +27,7 @@ const MatchHistory = ({ userGames, mmr, next } : Prop) => {
 		<Background source={require("../../Public/background.jpg")}>
 		<View>
 			<Grpah mmrs={mmrs}/>
-			<Next onPress={() => next(userGames[9].mmrBefore)}>
-				<Text>next</Text>
-			</Next>
+			<NextBtn next={() => next(userGames[9].mmrBefore)} />
 			{userGames.map((item, index) => {
 				now = before;
 				before = item.mmrBefore;

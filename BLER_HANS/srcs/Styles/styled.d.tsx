@@ -3,6 +3,11 @@ import 'styled-components'
 declare module 'styled-components' {
 	export interface DefaultTheme {
 		/* Font setting */
+		device : {
+			width	: number,
+			height	: number,			
+		}
+
 		Font : {
 			Eng 	: string,
 			EngBold	: string,
@@ -35,6 +40,13 @@ declare module 'styled-components' {
 				darkYellow	: string,
 				yellow		: string,
 				lightYellow	: string,
+			},
+
+			RankColor : {
+				win		: string,
+				top2	: string,
+				top3	: string,
+				normal	: string,
 			},
 			
 			transparency	: string,

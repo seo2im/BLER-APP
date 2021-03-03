@@ -27,7 +27,7 @@ const Box
 			<BoxItems>
 				<Item>
 					<TierTitle>{tierName[Math.floor(mmr / 100)]}</TierTitle>
-					<Tier mmr={mmr} width={"93px"} height={"140px"}/>
+					<Tier mmr={mmr} width={93} height={140}/>
 				</Item>
 				<Item>
 					<BoxText>{mmr} LP</BoxText>
@@ -37,7 +37,7 @@ const Box
 				</Item>
 				<Item>
 					<TierTitle>MOST</TierTitle>
-					<CharacterBox code={characterCode} width={"110px"} height={"140px"}/>
+					<CharacterBox code={characterCode} width={110} height={140}/>
 				</Item>
 			</BoxItems>
 		</DataBoxView>

@@ -23,9 +23,11 @@ export const GridItem = styled(Basic.Background)`
 	borderWidth	: 1px;
 	borderColor : ${({ theme }) => theme.Color.black};;
 `
-export const InfoBox = styled.View`
+export const InfoBox = styled(Basic.View)`
 	color : white;
 `
+
+/* Skill Parameter */
 export const Bar = styled.View`
 	flex-direction : row;
 
@@ -44,4 +46,3 @@ export const NorParameter = styled.View<{per : number}>`
 
 	background : blue;
 `
-

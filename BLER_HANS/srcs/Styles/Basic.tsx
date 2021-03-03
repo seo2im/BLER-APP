@@ -5,9 +5,7 @@ import LinearGradient from 'react-native-linear-gradient'
 export const HView = styled.View`
 	flex-direction : row;
 `
-export const View = styled.View`
-	flex	: 1;
-`
+export const View = styled.View``
 export const Click = styled.TouchableOpacity`
 
 `
@@ -51,5 +49,5 @@ export const KorP = styled(KorText)`
 	font-size	: ${({ theme }) => theme.FontSize.Small};
 `
 export const Image = styled.Image`
-	resizeMode : cover;
+	resizeMode : stretch;
 `

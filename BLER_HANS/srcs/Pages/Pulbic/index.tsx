@@ -1,5 +1,5 @@
-export { default as Loading } from './Loading'
-export { default as Error } from './Error'
+export { default as Loading } from './Loading/Loading'
+export { default as Error } from './Error/Error'
 export { default as CharacterBox } from './Character/CharacterBox'
 export { default as CharacterCircle } from './Character/CharacterCircle'
 export { default as Tier } from './Tier/Tier'
