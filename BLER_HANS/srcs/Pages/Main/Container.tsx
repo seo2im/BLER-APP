@@ -9,7 +9,7 @@ import { getUserStats } from '../../Modules/userStats/thunks'
 import Main from './Main'
 import { Loading, Error } from '../Pulbic'
 import { Background } from './Style';
-/*
+
 const Container = ({ route, navigation }) => {
 	const { nickname } = route.params;
 	const { data, loading, error } = useSelector((state : tState) => state.userNum.data);
@@ -28,7 +28,7 @@ const Container = ({ route, navigation }) => {
 		</>
 	)
 }
-*/
+/*
 const Container = ({ route, navigation }) => {
 	const nickname = "seolim"
 	const userNum = 755835
@@ -39,7 +39,7 @@ const Container = ({ route, navigation }) => {
 		</>
 	)
 }
-
+*/
 
 const Connector = ({ nickname, userNum, navigation }) => {
 	const { data, loading, error } = useSelector((state : tState) => state.userStats.data);
@@ -69,7 +69,7 @@ const Connector = ({ nickname, userNum, navigation }) => {
 							setSeason={setSeason}
 							userStats={data.userStats}
 							linkMatchHistory={linkMatchHistory}
-							linkStats={linkStats}/>}
+							/>}
 	</Background>
 	</>
 	)

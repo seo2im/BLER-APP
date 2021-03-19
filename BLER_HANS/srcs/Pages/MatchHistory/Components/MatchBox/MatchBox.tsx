@@ -1,5 +1,5 @@
 import React from 'react'
-import { CharacterCircle } from '../../../Pulbic'
+import { CharacterCircle, WeaponCircle } from '../../../Pulbic'
 import {
 	View, Bar, Item, WeaponeIcon, Text, Rank
 } from './Style'
@@ -20,7 +20,7 @@ const MatchBox = ({ game, nowMmr, beforeMmr} : Prop) => {
 			<Item>
 				<CharacterCircle code={game.characterNum} width={50} height={50}/>
 				<WeaponeIcon>
-					<CharacterCircle code={1} width={20} height={20}/>
+					<WeaponCircle code={game.equipment[0]} width={20} height={20}/>
 				</WeaponeIcon>
 			</Item>
 			<Item>

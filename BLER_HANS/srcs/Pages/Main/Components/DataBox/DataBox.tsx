@@ -17,8 +17,8 @@ const NoneBox
 
 const Box
 = ({ stat, title, link } : { stat : tUserStat, title : string, link : () => void }) => {
-	const { mmr, characterStats, averageKills, totalWins} = stat;
-	const { characterCode, totalGames } = characterStats[0];
+	const { mmr, characterStats, averageKills, totalWins, totalGames } = stat;
+	const { characterCode } = characterStats[0];
 
 	return (
 		<Click onPress={() => link()}>

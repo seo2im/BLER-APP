@@ -12,5 +12,5 @@ export const Circle = styled<{width : number, height : number}>(Box)`
 	resizeMode : cover;
 
 	border-radius	: ${props => props.width / 2}px;
+	background: white;
 `
-
